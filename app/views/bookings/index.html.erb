@@ -1,0 +1,9 @@
+<h1>All bookings</h1>
+<ol>
+<% @bookings.each do |booking| %>
+  <li>
+    <%= link_to "#{booking.user.firstname} #{booking.user.lastname}", ser %><br>
+    <%= booking.service.name %>
+  </li>
+<% end %>
+</ol>

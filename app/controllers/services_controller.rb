@@ -1,4 +1,6 @@
 class ServicesController < ApplicationController
+  before_action :check_if_admin, :only=>[:new, :create, :edit, :update, :destroy]
+
   def index
     @services = Service.all
   end

@@ -3,7 +3,9 @@ User details:<br>
 Firstname: <%= reservation.user.firstname %><br>
 Lastname: <%= reservation.user.lastname %><br>
 Email: <%= reservation.user.email %><br>
-Contact: <%= reservation.user.contact %><br>
+<% if !reservation.user.contact.nil? %>
+  Contact: <%= reservation.user.contact %><br>
+<% end %>
 Property details: <br>
 Property name: <%= reservation.property.name %><br>
 Property address: <%= reservation.property.address %><br>
