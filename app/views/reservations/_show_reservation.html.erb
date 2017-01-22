@@ -1,0 +1,22 @@
+Reservation-id: <%= reservation.id %><br>
+User details:<br>
+Firstname: <%= reservation.user.firstname %><br>
+Lastname: <%= reservation.user.lastname %><br>
+Email: <%= reservation.user.email %><br>
+Contact: <%= reservation.user.contact %><br>
+Property details: <br>
+Property name: <%= reservation.property.name %><br>
+Property address: <%= reservation.property.address %><br>
+Postcode: <%= reservation.property.postcode %><br>
+Property type: <%= reservation.property.room_type %><br>
+Lease details:<br>
+Lease start date: <%= reservation.start_date %><br>
+Lease end date: <%= reservation.end_date %><br>
+Reserved for number of people: <%= reservation.no_of_people %><br>
+<hr>
+
+<div class="controls">
+  <% if (@current_user.present? && @current_user.admin?) %>
+    <%= link_to "Edit", edit_reservation_path(reservation.id)%>
+  <% end %>
+</div>

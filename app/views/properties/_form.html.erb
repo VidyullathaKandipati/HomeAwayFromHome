@@ -1,0 +1,58 @@
+<%= form_for @property do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, :autofocus=>true, :required => true %>
+  <br>
+
+  <%= f.label :image %>
+  <%= f.url_field :image %>
+  <br>
+
+  <%= f.label :address %>
+  <%= f.text_field :address, :required => true %>
+  <br>
+
+  <%= f.label :postcode %>
+  <%= f.number_field :postcode, :required => true %>
+  <br>
+
+  <%= f.label :location %>
+  <%= f.text_field :location, :required => true %>
+  <br>
+
+  <%= f.label :rent %>
+  <%= f.number_field :rent, :required => true %>
+  <br>
+
+  <%= f.label :no_of_bedrooms %>
+  <%= f.number_field :no_of_bedrooms, :required => true %>
+  <br>
+
+  <%= f.label :no_of_bathrooms %>
+  <%= f.number_field :no_of_bathrooms, :required => true %>
+  <br>
+
+  <%= f.label :capacity %>
+  <%= f.number_field :capacity, :required => true %>
+  <br>
+
+  <%= f.label :room_type %>
+  <%= f.text_field :room_type, :required => true %>
+  <br>
+
+  <%= f.label :female_male %>
+  <%= f.text_field :female_male, :required => true %>
+  <br>
+
+  <%= f.label :smoking %>
+  <%= f.text_field :smoking, :required => true %>
+  <br>
+
+  <%= f.label :pets %>
+  <%= f.text_field :pets, :required => true %>
+  <br>
+
+  <label></label>
+  <%= f.submit %>
+
+<% end %>

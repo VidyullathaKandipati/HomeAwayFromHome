@@ -1,0 +1,31 @@
+<%= form_for @user do |f| %>
+  <%= f.label :firstname %>
+  <%= f.text_field :firstname, :autofocus=>true, :required => true %>
+  <br>
+  <%= f.label :lastname %>
+  <%= f.text_field :lastname, :required => true %>
+  <br>
+  <%= f.label :email %>
+  <%= f.email_field :email, :required => true %>
+  <br>
+  <% if @user.id.nil? %>
+    *<%= f.label :password %>
+    <%= f.password_field :password, :required => true %><br>
+    *<%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, :required=>true %><br>
+  <% end %>
+  <%= f.label :contact %>
+  <%= f.text_field :contact%>
+  <br>
+  <%= f.label :passport_no %>
+  <%= f.text_field :passport_no, :required => true %>
+  <br>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <br>
+  <%= f.label :postcode %>
+  <%= f.number_field :postcode %>
+  <br>
+  <label></label>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,43 @@
+# == Schema Information
+#
+# Table name: properties
+#
+#  id              :integer          not null, primary key
+#  address         :text
+#  postcode        :integer
+#  no_of_bedrooms  :integer
+#  no_of_bathrooms :integer
+#  room_type       :text
+#  female_male     :string
+#  smoking         :text
+#  pets            :text
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  name            :text
+#  location        :text
+#  image           :text
+#  rent            :integer
+#  capacity        :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: MyText
+  postcode: 1
+  no_of_bedrooms: 1
+  no_of_bathrooms: 1
+  room_type: MyText
+  female_male: MyString
+  smoking: false
+  pets: false
+
+two:
+  address: MyText
+  postcode: 1
+  no_of_bedrooms: 1
+  no_of_bathrooms: 1
+  room_type: MyText
+  female_male: MyString
+  smoking: false
+  pets: false

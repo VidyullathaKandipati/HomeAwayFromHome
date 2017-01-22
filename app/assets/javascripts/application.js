@@ -12,4 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require_tree .
+
+// $(document).ready(function(){
+//         $('#reservation_start_date').datepicker("option", 'sv');
+// });

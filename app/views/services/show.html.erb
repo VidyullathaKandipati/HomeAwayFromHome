@@ -1,0 +1,12 @@
+<h1><%= @service.name %> </h1>
+<p>
+<%= "What does this service mean: #{@service.description}" %> <br>
+<%= "Cost of the service per hour: #{@service.cost}" %>
+</p>
+
+<div class="controls">
+  <% if (@current_user.present? && @current_user.admin?) %>
+    <%= link_to "Edit", edit_service_path %>
+    <%= link_to "Delete", @service, :method=>"delete", :data=>{:confirm=>"Are you sure?"} %>
+  <% end %>
+</div>
