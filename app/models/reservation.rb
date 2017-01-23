@@ -17,4 +17,56 @@
 class Reservation < ActiveRecord::Base
   belongs_to :user
   belongs_to :property
+  validates_presence_of :start_date, :end_date
+  validate :end_date_is_after_start_date
+  validate :check_for_accomodation_availability, :on=>[:new, :create]
+  validate :update_availability, :on=>[:edit, :update]
+
+  private
+  def end_date_is_after_start_date
+    if (!start_date.blank? && !end_date.blank?)
+      if start_date >= end_date
+        errors.add(:end_time, "Cannot be before the start date.")
+        return false
+      end
+    end
+    return true
+  end
+
+  def check_for_accomodation_availability
+    property = Property.find property_id
+    if no_of_people > property.available_positions
+      puts "No of people: #{no_of_people}"
+      puts "Available positions: #{property.available_positions}"
+      puts "Property name #{property.name}"
+      errors.add(:no_of_people, ": Cannot accomodate that many people,
+                  please see the available positions and make your reservation.")
+    else
+      puts "All good: making reservation"
+      property.available_positions -= no_of_people
+      property.save
+    end
+  end
+
+  def update_availability
+    if self.changed?
+      puts "Reservation changed."
+      if self.changes.include? "no_of_people"
+        property = Property.find property_id
+        property.available_positions += self.changes["no_of_people"][0]
+        if self.changes["no_of_people"][1] > property.available_positions
+          puts "No of people: #{no_of_people}"
+          puts "Available positions: #{property.available_positions}"
+          puts "Property name #{property.name}"
+          errors.add(:no_of_people, ": Cannot accomodate that many people,
+                      please see the available positions and make your reservation.")
+        else
+          puts "All good: making reservation"
+          property.available_positions -= no_of_people
+          property.save
+        end
+      end
+    end
+  end
+
 end

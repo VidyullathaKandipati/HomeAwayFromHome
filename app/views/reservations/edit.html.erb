@@ -1,2 +1,10 @@
 <h1>Edit reservation</h1>
+<% if @reservation.errors.any? %>
+  <ol>
+  <% @reservation.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ol>
+<% end %>
+
 <%= render :partial=>"reservations/form" %>

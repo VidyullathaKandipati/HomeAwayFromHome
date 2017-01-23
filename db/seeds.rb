@@ -9,12 +9,12 @@ Property.destroy_all
 Property.create :name=>"Value for money", :address=>"101 Albert road, Strathfield, NSW",
   :postcode=>2135, :location=>"Strathfield", :rent=> 200, :no_of_bedrooms=>3,
   :no_of_bathrooms=>2, :capacity=>5, :room_type=>"shared", :female_male=>"females only",
-  :smoking=>"No", :pets=>"Yes"
+  :smoking=>"No", :pets=>"Yes", :available_positions=>5
 
 Property.create :name=>"Bright and big", :address=>"67 Regent street, Kogarah, NSW",
   :postcode=>2217, :location=>"Kogarah", :rent=>250, :no_of_bedrooms=>1, :no_of_bathrooms=>1,
   :capacity=> 1, :room_type=>"private", :female_male=>"Male / Female",
-  :smoking=>"Yes", :pets=>"Yes"
+  :smoking=>"Yes", :pets=>"Yes", :available_positions=>1
 
 User.destroy_all
 User.create :firstname=>"Vidyullatha", :lastname=>"Kandipati", :email=>"lat@gmail.com",
