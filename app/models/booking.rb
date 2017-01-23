@@ -14,5 +14,5 @@
 class Booking < ActiveRecord::Base
   belongs_to :user
   belongs_to :service
-  validates :appointment_time, :presence => true
+  validates :appointment_time, :presence => true, :uniqueness => true
 end

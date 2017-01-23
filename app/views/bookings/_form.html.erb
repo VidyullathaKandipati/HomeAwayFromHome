@@ -9,10 +9,8 @@
       {:include_blank => "Select a service"}, :required => true %>
   <br>
   <%= f.label :appointment_time, "Time you need the service" %>
-  <%# f.datetime_field :appointment_time, :required => true, :placeholder=>"yyyy-mm-dd," %>
-  <%= f.datetime_select :appointment_time, :required=>true %>
-  <%# datetime_select("f","appointment_time", ampm: true, :minute_step => 15) %>
-
+  <%= f.datetime_select :appointment_time, :required=>true, :minute_step => 30,
+      start_hour: 8, end_hour: 18, :ampm=>true, :start_year=> Date.today.year %>
   <br>
   <br>
   <%= f.submit %>
