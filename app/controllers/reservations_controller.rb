@@ -4,7 +4,8 @@ class ReservationsController < ApplicationController
   before_action :check_if_admin, :except=>[:new, :create, :show]
 
   def index
-    @reservations = Reservation.all
+    property = Property.find params[:property_id]
+    @reservations = property.reservations
   end
 
   def show
@@ -12,34 +13,36 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @reservation = Reservation.new
-    @properties = Property.all
+    @property = Property.find params[:property_id]
+    @reservation = @property.reservations.build
   end
 
   def create
-    # raise params.inspect
-    reservation = Reservation.create reservation_params
+    property = Property.find params[:property_id]
+    reservation = property.reservations.new reservation_params
     user = User.find_by :email=>reservation.user_email
     reservation.user_id = user.id
+    puts "Reservation start_date: #{reservation.start_date}"
+    puts "Reservation End_date: #{reservation.end_date}"
     reservation.save
-    redirect_to reservation
+    redirect_to property_reservation_path(reservation.property_id, reservation.id)
   end
 
   def edit
-    @reservation = Reservation.find_by :email=>params[:email]
-    @properties = Property.all
+    @property = Property.find params[:property_id]
+    @reservation = Reservation.find params[:id]
   end
 
   def update
-    reservation = Reservation.find_by :email=>params[:email]
+    reservation = Reservation.find params[:id]
     reservation.update reservation_params
-    redirect_to reservation
+    redirect_to property_reservation_path(reservation.property_id, reservation.id)
   end
 
   def destroy
-    reservation = Reservation.find_by :email=>params[:email]
+    reservation = Reservation.find params[:id]
     reservation.destroy
-    redirect_to reservations_path
+    redirect_to property_reservations_path(params[:property_id])
   end
 
   private

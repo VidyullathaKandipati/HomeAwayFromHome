@@ -1,11 +1,11 @@
-<%= form_for @reservation do |f| %>
+<%= form_for [@property, @reservation] do |f| %>
 
   <%= f.label :user_email, "Email Id" %>
   <%= f.email_field :user_email, :value=>@current_user.email, :autofocus=>true,
       :required => true %>
   <br>
-  <%= f.label :property %>
-  <%= f.collection_select :property_id, @properties, :id, :name,
+  <%# f.label :property %>
+  <%# f.collection_select :property_id, @properties, :id, :name,
       {:include_blank => "Select a property"}, :required => true %>
   <br>
   <%= f.label :start_date, "Start from" %>

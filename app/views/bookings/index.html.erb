@@ -2,7 +2,8 @@
 <ol>
 <% @bookings.each do |booking| %>
   <li>
-    <%= link_to "#{booking.user.firstname} #{booking.user.lastname}", ser %><br>
+    <%= link_to "#{booking.user.firstname} #{booking.user.lastname}",
+        service_booking_path(booking.service_id, booking.id) %><br>
     <%= booking.service.name %>
   </li>
 <% end %>

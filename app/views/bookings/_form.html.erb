@@ -1,19 +1,19 @@
-<%= form_for @booking do |f| %>
+<%= form_for [@service, @booking] do |f| %>
 
   <%= f.label :user_email, "Email id" %>
   <%= f.email_field :user_email, :value=>@current_user.email, :autofocus=> true,
       :required=>true %>
   <br>
-  <%= f.label :service %>
-  <%= f.collection_select :service_id, @services, :id, :name,
+  <%# f.label :service %>
+  <%# f.collection_select :service_id, @services, :id, :name,
       {:include_blank => "Select a service"}, :required => true %>
   <br>
   <%= f.label :appointment_time, "Time you need the service" %>
   <%# f.datetime_field :appointment_time, :required => true, :placeholder=>"yyyy-mm-dd," %>
-  <%= f.datetime_select :appointment_time %>
-  <!-- <%# datetime_select("f","appointment_time", ampm: true, :minute_step => 15) %> -->
+  <%= f.datetime_select :appointment_time, :required=>true %>
+  <%# datetime_select("f","appointment_time", ampm: true, :minute_step => 15) %>
 
   <br>
-  <label></label>
+  <br>
   <%= f.submit %>
 <% end %>

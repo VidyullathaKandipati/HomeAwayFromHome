@@ -4,7 +4,8 @@ class BookingsController < ApplicationController
   before_action :check_if_admin, :except=>[:new, :create, :show]
 
   def index
-    @bookings = Booking.all
+    service = Service.find params[:service_id]
+    @bookings = service.bookings
   end
 
   def show
@@ -12,33 +13,34 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
-    @services = Service.all
+    @service = Service.find params[:service_id]
+    @booking = @service.bookings.new
   end
 
   def create
-    booking = Booking.create booking_params
+    service = Service.find params[:service_id]
+    booking = service.bookings.create booking_params
     user = User.find_by :email=>booking.user_email
     booking.user_id = user.id
     booking.save
-    redirect_to booking
+    redirect_to service_booking_path(service.id, booking.id)
   end
 
   def edit
+    @service = Service.find params[:service_id]
     @booking = Booking.find params[:id]
-    @services = Service.all
   end
 
   def update
     booking = Booking.find params[:id]
     booking.update booking_params
-    redirect_to booking
+    redirect_to service_booking_path(booking.service_id, booking.id)
   end
 
   def destroy
     booking = Booking.find params[:id]
     booking.destroy
-    redirect_to bookings_path
+    redirect_to service_bookings_path(params[:service_id])
   end
 
   private

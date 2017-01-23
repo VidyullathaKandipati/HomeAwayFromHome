@@ -8,6 +8,7 @@
   <% if (@current_user.present? && @current_user.admin?) %>
     <%= link_to "Edit", edit_service_path %>
     <%= link_to "Delete", @service, :method=>"delete", :data=>{:confirm=>"Are you sure?"} %>
+    <%= link_to "All bookings", service_bookings_path(@service.id) %>
   <% end %>
-    <%= link_to "Book service", new_booking_path %>
+    <%= link_to "Book service", new_service_booking_path(@service.id) %>
 </div>

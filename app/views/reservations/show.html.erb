@@ -1,2 +1,8 @@
 <h1>Your reservation</h1>
-<%= render :partial=>"show_reservation", locals: {reservation: @reservation} %>
+<%= render :partial=>"reservations/show_reservation", locals: {reservation: @reservation} %>
+
+<div class="controls">
+  <%= link_to "Edit", edit_property_reservation_path(@reservation.property_id, @reservation.id) %>
+  <%= link_to "Delete", property_reservation_path(@reservation.property_id, @reservation.id),
+      :method=>"delete", :data=>{:confirm=>"Are you sure?"} %>
+</div>

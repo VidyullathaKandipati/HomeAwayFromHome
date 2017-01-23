@@ -1,7 +1,8 @@
 <h1>All Reservations</h1>
 <ol>
   <% @reservations.each do |r| %>
-    <li>User name: <%= link_to "#{r.user.firstname} #{r.user.lastname}", r %><br>
+    <li>User name: <%= link_to "#{r.user.firstname} #{r.user.lastname}",
+                        property_reservation_path(r.property_id, r.id) %><br>
         Property: <%= r.property.name %>
     </li>
 

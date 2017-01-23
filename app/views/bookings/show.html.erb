@@ -15,6 +15,8 @@ Service appointment time: <%= @booking.appointment_time %><br>
 
 <div class="controls">
   <% if (@current_user.present? && @current_user.admin?) %>
-    <%= link_to "Edit", edit_booking_path(@booking.id)%>
+    <%= link_to "Edit", edit_service_booking_path(@booking.service_id, @booking.id)%>
+    <%= link_to "Delete", service_booking_path(@booking.service_id, @booking.id),
+        :method=>"delete", :data=>{:confirm=>"Are you sure?"} %>
   <% end %>
 </div>
