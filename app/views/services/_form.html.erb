@@ -1,13 +1,25 @@
 <%= form_for @service do |f| %>
+<div class="row">
+
+<div class="col-md-3"></div>
+
+<div class="col-md-6">
+<div class="form-group">
   <%= f.label :name %>
-  <%= f.text_field :name, :autofocus=>true, :required => true %>
-  <br>
+  <%= f.text_field :name, :autofocus=>true, :required => true, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :description %>
-  <%= f.text_field :description %>
-  <br>
+  <%= f.text_field :description, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :cost %>
-  <%= f.number_field :cost, :required => true %>
-  <br>
+  <%= f.number_field :cost, :required => true, :class=>"form-control" %>
+</div>
   <label></label>
-  <%= f.submit %>
+  <%= f.submit :class=>"btn btn-primary"%>
 <% end %>
+</div>
+<div class="col-md-3"></div>
+
+</div>

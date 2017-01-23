@@ -1,62 +1,73 @@
 <%= form_for @property do |f| %>
 
+<div class="row">
+
+<div class="col-md-3"></div>
+
+<div class="col-md-6">
+
+<div class="form-group">
   <%= f.label :name %>
-  <%= f.text_field :name, :autofocus=>true, :required => true %>
-  <br>
-
+  <%= f.text_field :name, :autofocus=>true, :required => true, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :image %>
-  <%= f.url_field :image %>
-  <br>
-
+  <%= f.url_field :image, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :address %>
-  <%= f.text_field :address, :required => true %>
-  <br>
-
+  <%= f.text_field :address, :required => true, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :postcode %>
-  <%= f.number_field :postcode, :required => true %>
-  <br>
-
+  <%= f.number_field :postcode, :required => true, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :location %>
-  <%= f.text_field :location, :required => true %>
-  <br>
-
+  <%= f.text_field :location, :required => true, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :rent %>
-  <%= f.number_field :rent, :required => true %>
-  <br>
-
+  <%= f.number_field :rent, :required => true, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :no_of_bedrooms %>
-  <%= f.number_field :no_of_bedrooms, :required => true %>
-  <br>
-
+  <%= f.number_field :no_of_bedrooms, :required => true, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :no_of_bathrooms %>
-  <%= f.number_field :no_of_bathrooms, :required => true %>
-  <br>
-
+  <%= f.number_field :no_of_bathrooms, :required => true, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :capacity %>
-  <%= f.number_field :capacity, :required => true %>
-  <br>
-
+  <%= f.number_field :capacity, :required => true, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :available_positions %>
-  <%= f.number_field :available_positions %>
-  <br>
-
+  <%= f.number_field :available_positions, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :room_type %>
-  <%= f.text_field :room_type, :required => true %>
-  <br>
-
+  <%= f.text_field :room_type, :required => true, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :female_male %>
-  <%= f.text_field :female_male, :required => true %>
-  <br>
-
+  <%= f.text_field :female_male, :required => true, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :smoking %>
-  <%= f.text_field :smoking, :required => true %>
-  <br>
-
+  <%= f.text_field :smoking, :required => true, :class=>"form-control" %>
+</div>
+<div class="form-group">
   <%= f.label :pets %>
-  <%= f.text_field :pets, :required => true %>
-  <br>
+  <%= f.text_field :pets, :required => true, :class=>"form-control" %>
+</div>
 
-  <label></label>
-  <%= f.submit %>
+  <%= f.submit :class=>"btn btn-primary" %>
 
 <% end %>
+</div>
+
+<div class="col-md-3"></div>
+
+</div>
