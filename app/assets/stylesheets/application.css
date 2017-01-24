@@ -28,7 +28,7 @@
 @media (min-width: 600px) {
   div.test > img{ height: 300px !important ;}
 }
-@media, (min-width: 800px) {
+@media (min-width: 800px) {
   div.test > img{ height: 400px !important ; }
 }
 
