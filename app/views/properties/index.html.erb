@@ -1,7 +1,102 @@
 <h1>All properties</h1>
-<ul>
+<!-- <ul> -->
+
+<!-- </ul> -->
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="6"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="7"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="8"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox" width="80%">
+    <div class="item active">
+      <div class="test"><img src="http://res.cloudinary.com/dzhoxlq6z/image/upload/v1485242668/Carousel_pics/h1.jpg" alt="h1.jpg"></div>
+      <div class="carousel-caption">
+        <h3>Amazing home stay in a peaceful location.</h3>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="test"><img src="http://res.cloudinary.com/dzhoxlq6z/image/upload/v1485242669/Carousel_pics/h2.jpg" alt="h2.jpg"></div>
+      <div class="carousel-caption">
+        <h3>Affordable home stay at a vintage bunglaw.</h3>
+      </div>
+    </div>
+    <div class="item">
+      <div class="test"><img src="http://res.cloudinary.com/dzhoxlq6z/image/upload/v1485242669/Carousel_pics/h4.jpg" alt="h4.jpg"></div>
+      <div class="carousel-caption">
+        <h3>Experience home stay at mansion.</h3>
+      </div>
+    </div>
+    <div class="item">
+      <div class="test"><img src="http://res.cloudinary.com/dzhoxlq6z/image/upload/v1485242669/Carousel_pics/h5.jpg" alt="h5.jpg"></div>
+      <div class="carousel-caption">
+        <h3>Literally close to everything.</h3>
+      </div>
+    </div>
+    <div class="item">
+      <div class="test"><img src="http://res.cloudinary.com/dzhoxlq6z/image/upload/v1485242671/Carousel_pics/h8.jpg" alt="h8.jpg"></div>
+      <div class="carousel-caption">
+        <h3>We have got much sought after warehouse styled home stays too. </h3>
+      </div>
+    </div>
+    <div class="item">
+      <div class="test"><img src="http://res.cloudinary.com/dzhoxlq6z/image/upload/v1485242668/Carousel_pics/h3.jpg" alt="h3.jpg"></div>
+      <div class="carousel-caption">
+        <h3>An ideal kitchen</h3>
+      </div>
+    </div>
+    <div class="item">
+      <div class="test"><img src="http://res.cloudinary.com/dzhoxlq6z/image/upload/v1485242669/Carousel_pics/h6.jpg" alt="h6.jpg"></div>
+      <div class="carousel-caption">
+        <h3>Ideal bathroom</h3>
+      </div>
+    </div>
+    <div class="item">
+      <div class="test"><img src="http://res.cloudinary.com/dzhoxlq6z/image/upload/v1485242668/Carousel_pics/h7.jpg" alt="h7.jpg"></div>
+      <div class="carousel-caption">
+        <h3>...And finally relax.</h3>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<br>
+<h1>Current available properties</h1>
+<br>
+<div class="row">
+<div class="container">
+
 <% @properties.each do |p| %>
-  <li><%= link_to p.name, p %></li>
-  <%= p.location %>
+  <div class="col-md-4">
+    <% if p.image.present? %>
+      <%= link_to cl_image_tag(p.image,:class=>"img-responsive, img-thumbnail"), p %>
+    <% end %>
+    <li><%= link_to p.name, p %></li>
+    <%= p.location %>
+  </div>
 <% end %>
-</ul>
+
+</div>
+</div>

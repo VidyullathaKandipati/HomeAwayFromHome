@@ -14,7 +14,12 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    property = Property.create property_params
+    property = Property.new property_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      property.image = req["public_id"]
+    end
+    property.save
     redirect_to property
   end
 
@@ -25,6 +30,11 @@ class PropertiesController < ApplicationController
   def update
     property = Property.find params[:id]
     property.update property_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      property.image = req["public_id"]
+      property.save
+    end
     redirect_to property
   end
 

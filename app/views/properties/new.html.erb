@@ -1,2 +1,9 @@
 <h1>Add new property</h1>
+<% if @property.errors.any? %>
+  <ol>
+  <% @property.errors.full_messages.each do |msg| %>
+    <li class="bg-danger"><%= msg %></li>
+  <% end %>
+  </ol>
+<% end %>
 <%= render :partial=>"properties/form" %>

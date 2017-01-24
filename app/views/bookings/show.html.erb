@@ -1,22 +1,5 @@
 <h1>Your booking</h1>
-Booking id: <%= @booking.id %><br>
-User details:<br>
-Firstname: <%= @booking.user.firstname %><br>
-Lastname: <%= @booking.user.lastname %><br>
-Email: <%= @booking.user.email %><br>
-<% if !@booking.user.contact.nil? %>
-  Contact: <%= @booking.user.contact %><br>
-<% end %>
-Service details: <br>
-Service name: <%= @booking.service.name %><br>
-Service description: <%= @booking.service.description %><br>
-Service appointment time: <%= @booking.appointment_time %><br>
-<hr>
-
-<div class="controls">
-  <% if (@current_user.present? && @current_user.admin?) %>
-    <%= link_to "Edit", edit_service_booking_path(@booking.service_id, @booking.id)%>
-    <%= link_to "Delete", service_booking_path(@booking.service_id, @booking.id),
-        :method=>"delete", :data=>{:confirm=>"Are you sure?"} %>
-  <% end %>
-</div>
+<table class="table table-hover table-condensed table-bordered table-striped">
+  <%= render :partial=>"header" %>
+  <%= render :partial=>"show", locals: {booking: @booking} %>
+</table>

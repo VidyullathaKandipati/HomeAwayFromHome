@@ -1,18 +1,22 @@
-Reservation-id: <%= reservation.id %><br>
-User details:<br>
-Firstname: <%= reservation.user.firstname %><br>
-Lastname: <%= reservation.user.lastname %><br>
-Email: <%= reservation.user.email %><br>
+<tr>
+<div class="row">
+<td class="col-md-1"><%= reservation.id %></td>
+<td class="col-md-1"><%= reservation.user.firstname %></td>
+<td class="col-md-1"><%= reservation.user.lastname %></td>
+<td class="col-md-1"><%= reservation.user.email %></td>
 <% if !reservation.user.contact.nil? %>
-  Contact: <%= reservation.user.contact %><br>
+  <td class="col-md-1">Contact: <%= reservation.user.contact %></td>
 <% end %>
-Property details: <br>
-Property name: <%= reservation.property.name %><br>
-Property address: <%= reservation.property.address %><br>
-Postcode: <%= reservation.property.postcode %><br>
-Property type: <%= reservation.property.room_type %><br>
-Lease details:<br>
-Lease start date: <%= reservation.start_date %><br>
-Lease end date: <%= reservation.end_date %><br>
-Reserved for number of people: <%= reservation.no_of_people %><br>
-<hr>
+<td class="col-md-1"><%= reservation.property.name %></td>
+<td class="col-md-1"><%= "#{reservation.property.address}, #{reservation.property.postcode}" %></td>
+<td class="col-md-1"><%= reservation.property.room_type %></td>
+<td class="col-md-1"><%= reservation.start_date %></td>
+<td class="col-md-1"><%= reservation.end_date %></td>
+<td class="col-md-1"><%= reservation.no_of_people %></td>
+<% if @current_user.present? and @current_user.admin? %>
+      <td class="col-md-1">  <%= link_to "Edit", edit_property_reservation_path(reservation.property_id, reservation.id) %>,
+        <%= link_to "Delete", property_reservation_path(reservation.property_id, reservation.id),
+                    :method=>"delete", :data=>{:confirm=>"Are you sure?"}%> </td>
+    <% end %>
+</div>
+</tr>

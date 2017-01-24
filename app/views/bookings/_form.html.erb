@@ -11,11 +11,13 @@
   <%# f.label :service %>
   <%# f.collection_select :service_id, @services, :id, :name,
       {:include_blank => "Select a service"}, :required => true %>
+
+
 <div class="form-group">
   <%= f.label :appointment_time, "Time you need the service" %>
-  <%= f.datetime_select :appointment_time, :required=>true, :minute_step => 30,
-      start_hour: 8, end_hour: 18, :ampm=>true, :start_year=> Date.today.year %>
+  <%= f.text_field :appointment_time, :required=>true, :id => 'apt-date' %>
 </div>
+
   <%= f.submit :class=>"btn btn-primary"%>
 <% end %>
 </div>

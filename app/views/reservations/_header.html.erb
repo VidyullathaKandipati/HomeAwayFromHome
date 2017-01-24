@@ -1,0 +1,18 @@
+<tr>
+  <div class="row">
+  <th class="">Reservation-id</th>
+  <th>User First name</th>
+  <th>Last name</th>
+  <th>Email</th>
+  <th>Contact</th>
+  <th>Property name</th>
+  <th>Property address</th>
+  <th>Property type</th>
+  <th>Lease start date</th>
+  <th>Lease end date</th>
+  <th>Number of people</th>
+  <% if @current_user.present? and @current_user.admin? %>
+          <th>Edit/Delete</th>
+      <% end %>
+  </div>
+</tr>

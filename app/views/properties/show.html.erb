@@ -1,24 +1,24 @@
 <h1><%= @property.name %></h1>
 <% if !@property.image.nil? %>
-  <%= image_tag @property.image %><br>
+  <%= cl_image_tag @property.image %><br>
 <% end %>
-  <%= "Address: #{@property.address}" %><br>
-  <%= "Postcode: #{@property.postcode}" %><br>
-  <%= "Rent per week: #{@property.rent}" %><br>
-  <%= "Number of Bedrooms: #{@property.no_of_bedrooms}" %><br>
-  <%= "Number of Bathrooms: #{@property.no_of_bathrooms}" %><br>
-  <%= "This property can accomodate: #{@property.capacity} people" %><br>
-  <%= "Number of available positions: #{@property.available_positions}" %><br>
-  <%= "Room type: #{@property.room_type}" %><br>
-  <%= "For males or females: #{@property.female_male}" %><br>
-  <%= "Smoking allowed: #{@property.smoking}" %><br>
-  <%= "Pets allowed: #{@property.pets}" %><br>
+  <strong>Address: </strong><%= "#{@property.address}" %><br>
+  <strong>Postcode: </strong><%= "#{@property.postcode}" %><br>
+  <strong>Rent per week: </strong><%= "#{@property.rent}" %><br>
+  <strong>Number of Bedrooms: </strong><%= "#{@property.no_of_bedrooms}" %><br>
+  <strong>Number of Bathrooms: </strong><%= "#{@property.no_of_bathrooms}" %><br>
+  <strong>This property can accomodate: </strong><%= "#{@property.capacity} people" %><br>
+  <strong>Number of available positions: </strong><%= "#{@property.available_positions}" %><br>
+  <strong>Room type: </strong><%= "#{@property.room_type}" %><br>
+  <strong>For males or females: </strong><%= "#{@property.female_male}" %><br>
+  <strong>Smoking allowed: </strong><%= "#{@property.smoking}" %><br>
+  <strong>Pets allowed: </strong><%= "#{@property.pets}" %><br>
 
 <div class="controls">
   <% if (@current_user.present? && @current_user.admin?) %>
-    <%= link_to "Edit", edit_property_path %>
-    <%= link_to "Delete", @property, :method=>"delete", :data=>{:confirm=>"Are you sure?"} %>
-    <%= link_to "All reservations", property_reservations_path(@property.id) %>
+    <%= link_to "Edit", edit_property_path, :class=>"btn btn-primary" %>
+    <%= link_to "Delete", @property, :method=>"delete", :data=>{:confirm=>"Are you sure?"}, :class=>"btn btn-primary" %>
+    <%= link_to "All reservations", property_reservations_path(@property.id), :class=>"btn btn-primary" %>
   <% end %>
-    <%= link_to "Make reservation", new_property_reservation_path(@property.id) %>
+    <%= link_to "Make reservation", new_property_reservation_path(@property.id), :class=>"btn btn-primary" %>
 </div>

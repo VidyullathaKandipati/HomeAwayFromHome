@@ -14,7 +14,12 @@ class ServicesController < ApplicationController
   end
 
   def create
-    service = Service.create service_params
+    service = Service.new service_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      service.image = req["public_id"]
+    end
+    service.save
     redirect_to service
   end
 
@@ -25,6 +30,11 @@ class ServicesController < ApplicationController
   def update
     service = Service.find params[:id]
     service.update service_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      service.image = req["public_id"]
+      service.save
+    end
     redirect_to service
   end
 
@@ -36,6 +46,6 @@ class ServicesController < ApplicationController
 
   private
   def service_params
-    params.require(:service).permit(:name, :description, :cost)
+    params.require(:service).permit(:name, :description, :cost, :image)
   end
 end

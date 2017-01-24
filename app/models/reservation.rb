@@ -36,13 +36,9 @@ class Reservation < ActiveRecord::Base
   def check_for_accomodation_availability
     property = Property.find property_id
     if no_of_people > property.available_positions
-      puts "No of people: #{no_of_people}"
-      puts "Available positions: #{property.available_positions}"
-      puts "Property name #{property.name}"
       errors.add(:no_of_people, ": Cannot accomodate that many people,
                   please see the available positions and make your reservation.")
     else
-      puts "All good: making reservation"
       property.available_positions -= no_of_people
       property.save
     end
@@ -55,18 +51,17 @@ class Reservation < ActiveRecord::Base
         property = Property.find property_id
         property.available_positions += self.changes["no_of_people"][0]
         if self.changes["no_of_people"][1] > property.available_positions
-          puts "No of people: #{no_of_people}"
-          puts "Available positions: #{property.available_positions}"
-          puts "Property name #{property.name}"
           errors.add(:no_of_people, ": Cannot accomodate that many people,
                       please see the available positions and make your reservation.")
         else
-          puts "All good: making reservation"
           property.available_positions -= no_of_people
           property.save
         end
       end
     end
+  end
+
+  def check_available_positions_for_date
   end
 
 end

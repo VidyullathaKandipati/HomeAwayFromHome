@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+ @media (min-width: 200px) {
+  div.test > img{ height: 200px !important ;}
+}
+
+@media (min-width: 300px) {
+  div.test > img{ height: 200px !important; }
+}
+
+@media (min-width: 400px) {
+  div.test > img{ height: 200px !important; }
+}
+@media (min-width: 600px) {
+  div.test > img{ height: 300px !important ;}
+}
+@media, (min-width: 800px) {
+  div.test > img{ height: 400px !important ; }
+}
+
+ul, li{
+  list-style-type: none;
+}
+
+.services{
+  width: 100%;
+  height: 300px;
+}

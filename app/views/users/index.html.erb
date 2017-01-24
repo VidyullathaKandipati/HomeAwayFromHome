@@ -1,6 +1,9 @@
 <h1>All users</h1>
-<ul>
-<% @users.each do |u| %>
-  <li> <%= link_to "#{u.firstname} #{u.lastname}", u %> </li>
+<!-- heading -->
+<table class="table table-striped">
+  <%= render :partial=>"header" %>
+</table>
+
+<% @users.each do |user| %>
+  <%= render :partial=>"show", :locals=>{user: user} %>
 <% end %>
-</ul>

@@ -1,12 +1,6 @@
 <h1><%= "#{@user.firstname} #{@user.lastname}" %></h1>
-<%= "Firt name: #{@user.firstname}" %> <br>
-<%= "Last name: #{@user.lastname}" %><br>
-<%= "Email: #{@user.email}" %><br>
-<%= "Contact number: #{@user.contact}" %><br>
-<%= "Passport no: #{@user.passport_no}" %><br>
-<%= "Address: #{@user.address}" %><br>
-<%= "Postcode: #{@user.postcode}" %><br>
+<table class="table table-striped">
+  <%= render :partial=>"header" %>
+</table>
 
-<div class="controls">
-  <%= link_to "Edit", edit_user_path %>
-</div>
+<%= render :partial=>"show", locals: {user: @user} %>

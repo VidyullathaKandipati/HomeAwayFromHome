@@ -1,0 +1,15 @@
+<tr>
+  <div class="row">
+  <th class="">Booking id teset</th>
+  <th class="">User details: First name</th>
+  <th class="">Last name</th>
+  <th class="">Email</th>
+  <th class="">Contact</th>
+  <th class="">Service details: Service name</th>
+  <th class="">Service description</th>
+  <th class="">Service appointment time</th>
+  <% if @current_user.present? and @current_user.admin? %>
+                  <th>Edit/Delete</th>
+  <% end %>
+  </div>
+</tr>

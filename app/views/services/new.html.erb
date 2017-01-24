@@ -1,2 +1,9 @@
 <h1>Add new service</h1>
+<% if @service.errors.any? %>
+  <ol>
+  <% @service.errors.full_messages.each do |msg| %>
+    <li class="bg-danger"><%= msg %></li>
+  <% end %>
+  </ol>
+<% end %>
 <%= render :partial=>"services/form" %>

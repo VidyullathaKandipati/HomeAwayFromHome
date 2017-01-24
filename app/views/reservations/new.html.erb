@@ -2,7 +2,7 @@
 <% if @reservation.errors.any? %>
   <ol>
   <% @reservation.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
+    <li class="bg-danger"><%= msg %></li>
   <% end %>
   </ol>
 <% end %>

@@ -1,0 +1,17 @@
+<tr>
+<div class="row">
+<td class="col-md-1"><%= booking.id %></td>
+<td class="col-md-1"><%= booking.user.firstname %></td>
+<td class="col-md-1"><%= booking.user.lastname %></td>
+<td class="col-md-1"><%= booking.user.email %></td>
+<td class="col-md-1"><%= booking.user.contact if !booking.user.contact.nil? %></td>
+<td class="col-md-1"><%= booking.service.name %></td>
+<td class="col-md-1"><%= booking.service.description %></td>
+<td class="col-md-1"><%= booking.appointment_time %></td>
+<% if @current_user.present? and @current_user.admin? %>
+  <td class="col-md-1"> <%= link_to "Edit", edit_service_booking_path(booking.service_id, booking.id)%>
+                        <%= link_to "Delete", service_booking_path(booking.service_id, booking.id),
+                                        :method=>"delete", :data=>{:confirm=>"Are you sure?"} %></td>
+<% end %>
+</div>
+</tr>

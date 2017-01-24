@@ -1,0 +1,17 @@
+<table class="table table-hover">
+
+  <!-- data -->
+  <td><%= user.firstname%></td>
+  <td><%= user.lastname%></td>
+  <td><%= user.email%></td>
+  <% if !user.contact.nil? %>
+    <td><%= user.contact%></td>
+  <% end %>
+  <td><%= user.passport_no%></td>
+  <% if !user.address.nil? %>
+    <td><%=user.address%></td>
+  <% end %>
+  <td><%= user.postcode unless user.postcode.nil? %></td>
+  <td><%= link_to "Edit", edit_user_path(user.id), :class=>"btn btn-primary" %></td>
+
+</table>
