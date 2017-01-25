@@ -1,29 +1,30 @@
-<%= form_for @service do |f| %>
 <div class="row">
 
 <div class="col-md-3"></div>
-
+<%= form_for(@service, :html=>{:multipart=>true}) do |f| %>
 <div class="col-md-6">
 <div class="form-group">
   <%= f.label :name %>
-  <%= f.text_field :name, :autofocus=>true, :required => true, :class=>"form-control" %>
+  <%= f.text_field :name, :autofocus=>true, :required => true, :class=>"form-control textfield-border" %>
 </div>
 <div class="form-group">
   <%= f.label :image %>
-  <%= f.cl_image_upload :image, :class=>"form-control" %>
+  <%= f.cl_image_upload :image, :class=>"form-control textfield-border" %>
 </div>
 <div class="form-group">
   <%= f.label :description %>
-  <%= f.text_field :description, :class=>"form-control" %>
+  <%= f.text_field :description, :class=>"form-control textfield-border" %>
 </div>
 <div class="form-group">
   <%= f.label :cost %>
-  <%= f.number_field :cost, :required => true, :class=>"form-control" %>
+  <%= f.number_field :cost, :required => true, :class=>"form-control textfield-border" %>
 </div>
-  <label></label>
+
+<div class="button-center">
   <%= f.submit :class=>"btn btn-primary"%>
-<% end %>
 </div>
+</div>
+<% end %>
 <div class="col-md-3"></div>
 
 </div>

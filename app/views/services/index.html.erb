@@ -2,8 +2,8 @@
 <div class="row">
 
 <% @services.each do |s| %>
-  <div class="col-md-4">
-    <%= link_to image_tag(s.image, :class=>"services"), s %>
+  <div class="col-md-4 div-margin">
+    <%= link_to cl_image_tag(s.image, :class=>"services"), s %>
     <h3><li><%= link_to s.name, s %> </li></h3>
   </div>
 <% end %>

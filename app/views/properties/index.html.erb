@@ -91,7 +91,7 @@
 <% @properties.each do |p| %>
   <div class="col-md-4">
     <% if p.image.present? %>
-      <%= link_to cl_image_tag(p.image,:class=>"img-responsive, img-thumbnail"), p %>
+      <%= link_to cl_image_tag(p.image,:class=>"img-responsive img-thumbnail img-index-show"), p %>
     <% end %>
     <li><%= link_to p.name, p %></li>
     <%= p.location %>

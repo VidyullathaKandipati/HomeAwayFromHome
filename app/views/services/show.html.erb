@@ -1,7 +1,7 @@
 <h1><%= @service.name %> </h1>
 <div class="row">
   <div class="col-md-6">
-    <%= image_tag @service.image %>
+    <%= cl_image_tag @service.image , :class=>"feature"%>
   </div>
   <div class="col-md-6">
     <p>

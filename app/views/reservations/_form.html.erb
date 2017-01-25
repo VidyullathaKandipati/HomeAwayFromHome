@@ -7,26 +7,27 @@
 <div class="form-group">
   <%= f.label :user_email, "Email Id" %>
   <%= f.email_field :user_email, :value=>@current_user.email, :autofocus=>true,
-      :required => true, :class=>"form-control" %>
+      :required => true, :class=>"form-control textfield-border" %>
 </div>
   <%# f.label :property %>
   <%# f.collection_select :property_id, @properties, :id, :name,
       {:include_blank => "Select a property"}, :required => true %>
 <div class="form-group">
   <%= f.label :start_date, "Start from" %><br>
-  <%= f.date_field :start_date, :required => true %>
+  <%= f.date_field :start_date, :required => true, :class=>"textfield-border"  %>
 </div>
 <div class="form-group">
   <%= f.label :end_date, "Till date" %><br>
-  <%= f.date_field :end_date, :required => true %>
+  <%= f.date_field :end_date, :required => true, :class=>"textfield-border" %>
 </div>
 <div class="form-group">
   <%= f.label :no_of_people, "No of people" %><br>
-  <%= f.number_field :no_of_people, :required => true %>
+  <%= f.number_field :no_of_people, :required => true, :class=>"textfield-border" %>
 </div>
-  <label></label>
+<br>
+<div class="button-center">
   <%= f.submit :class=>"btn btn-primary"%>
-
+</div>
 <% end %>
 </div>
 

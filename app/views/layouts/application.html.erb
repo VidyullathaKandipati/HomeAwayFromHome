@@ -2,19 +2,16 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <script src="jquery-ui/i18n/jquery.ui.datepicker-sv.js"></script> -->
-  <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
-  <!-- <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script> -->
   <title>HomeAwayFromHome</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= cloudinary_js_config %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 </head>
 <body>
 <div class="container">
 
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default nav-bg">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -25,7 +22,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+      <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home home" aria-hidden="true"></span>
 </a>
     </div>
 
