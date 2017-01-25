@@ -1,7 +1,7 @@
 <h1>New Reservation</h1>
 <% if @reservation.errors.any? %>
   <ol>
-  <% @reservation.errors.full_messages.each do |msg| %>
+  <% @reservation.errors.full_messages.uniq.each do |msg| %>
     <li class="bg-danger"><%= msg %></li>
   <% end %>
   </ol>

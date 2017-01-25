@@ -24,3 +24,7 @@
 
 <div class="col-md-3"></div>
 </div>
+
+<script>
+  var disableTheseTimes = <%== @service.bookings.pluck(:appointment_time).map { |x| x.to_s.chomp(':00 UTC') } %>
+</script>

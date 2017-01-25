@@ -19,8 +19,9 @@ class Reservation < ActiveRecord::Base
   belongs_to :property
   validates_presence_of :start_date, :end_date
   validate :end_date_is_after_start_date
-  validate :check_for_accomodation_availability, :on=>[:new, :create]
-  validate :update_availability, :on=>[:edit, :update]
+  # validates_associated :property, :message => "has no availability" #, :on=>[:new, :create, :edit, :update]
+  # validate :check_for_accomodation_availability, :on=>[:new, :create]
+  # validate :update_availability, :on=>[:edit, :update]
 
   private
   def end_date_is_after_start_date

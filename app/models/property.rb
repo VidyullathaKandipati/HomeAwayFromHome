@@ -23,4 +23,10 @@
 
 class Property < ActiveRecord::Base
   has_many :reservations
+  # validate :check_availability
+  #
+  # private
+  # def check_availability
+  #   errors.add(:capacity, "No availabilty")
+  # end
 end
