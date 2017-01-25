@@ -20,8 +20,8 @@ class Reservation < ActiveRecord::Base
   validates_presence_of :start_date, :end_date
   validate :end_date_is_after_start_date
   # validates_associated :property, :message => "has no availability" #, :on=>[:new, :create, :edit, :update]
-  # validate :check_for_accomodation_availability, :on=>[:new, :create]
-  # validate :update_availability, :on=>[:edit, :update]
+  validate :check_for_accomodation_availability, :on=>[:new, :create]
+  validate :update_availability, :on=>[:edit, :update]
 
   private
   def end_date_is_after_start_date
@@ -36,33 +36,28 @@ class Reservation < ActiveRecord::Base
 
   def check_for_accomodation_availability
     property = Property.find property_id
-    if no_of_people > property.available_positions
+    if no_of_people > property.capacity
       errors.add(:no_of_people, ": Cannot accomodate that many people,
-                  please see the available positions and make your reservation.")
+                    please see the available positions and make your reservation.")
     else
-      property.available_positions -= no_of_people
-      property.save
-    end
-  end
-
-  def update_availability
-    if self.changed?
-      puts "Reservation changed."
-      if self.changes.include? "no_of_people"
-        property = Property.find property_id
-        property.available_positions += self.changes["no_of_people"][0]
-        if self.changes["no_of_people"][1] > property.available_positions
-          errors.add(:no_of_people, ": Cannot accomodate that many people,
-                      please see the available positions and make your reservation.")
-        else
-          property.available_positions -= no_of_people
-          property.save
-        end
+      all_active_reservations = property.reservations.where("end_date > ?", start_date)
+      total_ppl_for_this_date = 0
+      all_active_reservations.each {|r| total_ppl_for_this_date += r.no_of_people}
+      if no_of_people <= (property.capacity - total_ppl_for_this_date)
+        property.save
+      else
+        errors.add(:no_of_people, " : Cannot accomodate people for the given date,
+                      try another date and for lesser people.")
       end
     end
   end
 
-  def check_available_positions_for_date
+  def update_availability
+    if(self.changed? && (self.changes.include? "no_of_people"))
+      puts "Reservation changed."
+        check_for_accomodation_availability
+    end
   end
+
 
 end

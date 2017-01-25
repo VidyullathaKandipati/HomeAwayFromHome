@@ -56,6 +56,10 @@ Rails.application.routes.draw do
   end
   resources :users, :except=>[:destroy]
 
+  # get '/search' => 'property#search_index', :as => 'search'
+  get '/search' => 'properties#search', :as => 'search'  
+
+
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'

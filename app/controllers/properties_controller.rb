@@ -5,6 +5,11 @@ class PropertiesController < ApplicationController
     @properties = Property.all
   end
 
+  def search
+    location = params[:search] + ", Australia"
+    @properties = Property.near(location, 5, :units => :km)
+  end
+
   def show
     @property = Property.find params[:id]
   end

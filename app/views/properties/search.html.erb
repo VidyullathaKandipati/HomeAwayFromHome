@@ -1,0 +1,54 @@
+  <%# @properties.each do |prop| %>
+    <!-- <div id="propid-<%# prop.id %>"> -->
+      <!-- test -->
+    <!-- </div> -->
+  <%# end %>
+
+<div id="map"></div>
+<script type="text/javascript">
+console.log('hi');
+var map;
+  function initMap() {
+    // var myLatLng = {lat: -25.363, lng: 131.044};
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: {lat: -25.363, lng: 131.044}
+  });
+
+  var markers = [];
+  var m;
+  <% @properties.each do |prop| %>
+  m = new google.maps.Marker({
+    position: {lat: <%= prop.latitude %>, lng: <%= prop.longitude %>},
+    map: map,
+    title: "<%= prop.name %>"
+  });
+
+  m.propertyID = '<%= prop.id %>';
+  m.infoWin = new google.maps.InfoWindow({
+    content: '<%= prop.name %><br><%= cl_image_tag prop.image, :style => 'width: 100px; height: 100px;'  %>'
+  });
+
+  m.addListener('click', function(){
+    // console.log('clicked', this, this.infoWin);
+    this.infoWin.open(map, this);
+    console.log(this.propertyID);
+    $('#propid-' + this.propertyID).css('color', 'green');
+  });
+
+  markers.push(m);
+
+  <% end %>
+
+  var bounds = new google.maps.LatLngBounds();
+  for (var i = 0; i < markers.length; i++) {
+   bounds.extend(markers[i].getPosition());
+  }
+  map.fitBounds(bounds);
+
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBP5XT6bj91OJrEiEtpTT-VUv2GZ6ugyp8&callback=initMap" async defer>
+
+</script>
