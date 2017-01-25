@@ -17,7 +17,7 @@ Property.create :name=>"Bright and big", :address=>"67 Regent street, Kogarah, N
   :smoking=>"Yes", :pets=>"Yes", :available_positions=>1
 
 User.destroy_all
-User.create :firstname=>"Vidyullatha", :lastname=>"Kandipati", :email=>"latha522@gmail.com", :password=>"chicken"
+User.create :firstname=>"Vidyullatha", :lastname=>"Kandipati", :email=>"latha522@gmail.com", :password=>"chicken",
   :contact=>"+61416870837", :passport_no=>"GSK78678", :address=>"111 Henley Rd, Homebush west, NSW",
   :postcode=>2140, :admin=>true
 
