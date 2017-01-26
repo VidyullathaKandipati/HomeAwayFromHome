@@ -6,8 +6,7 @@ This app is like a mix of airbnb and airtasker, just that, there is only one adm
 A user can browse through the properties and to reserve a property you would need to sign up.
 There are variety of properties, with shared and single rooms.
 A user can also book a service like taxi / food / housekeeping etc.
-A user can search for the properties on post code, and if there is invalid postcode,
-  the system would default the search to Sdyney. (The properties listed are in Sydney/Australia. We have not expanded yet .. ;))
+A user can search for the properties on post code, and if there is invalid postcode, the system would default the search to Sdyney. (The properties listed are in Sydney/Australia. We have not expanded yet .. ;))
 
 Payment system coming soon ... (That means you can reserve for FREE FREE FREE).
 
