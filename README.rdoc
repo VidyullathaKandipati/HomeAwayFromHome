@@ -1,28 +1,27 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To access app visit:  'https://home-away-from-home.herokuapp.com/'
+Brief description:
+This app is like a mix of airbnb and airtasker, just that, there is only one admin, who would add properties and services.
+A user can browse through the properties and to reserve a property you would need to sign up.
+There are variety of properties, with shared and single rooms.
+A user can also book a service like taxi / food / housekeeping etc.
+A user can search for the properties on post code, and if there is invalid postcode,
+  the system would default the search to Sdyney. (The properties listed are in Sydney/Australia. We have not expanded yet .. ;))
+
+Payment system coming soon ... (That means you can reserve for FREE FREE FREE).
 
 Things you may want to cover:
 
-* Ruby version
+Software used:
+Rails 4, Ruby 2.3.3, PostgreSQL.
+Javascript, Bootstrap, geocoder, google maps API, Heroku, Cloudinary.
 
-* System dependencies
+Hardware used:
+Apple Mac
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+Thanks to:
+Joel and Luke for their patience through out :)
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
