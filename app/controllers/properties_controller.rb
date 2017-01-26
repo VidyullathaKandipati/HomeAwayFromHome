@@ -27,6 +27,8 @@ class PropertiesController < ApplicationController
     if params[:file].present?
       req = Cloudinary::Uploader.upload(params[:file])
       @property.image = req["public_id"]
+    else
+      @property.image = "http://res.cloudinary.com/dzhoxlq6z/image/upload/v1485418003/New_carousel/home2.jpg"
     end
     if @property.save
       redirect_to properties_path
