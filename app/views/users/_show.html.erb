@@ -1,5 +1,5 @@
-<table class="table table-hover">
 
+<tr>
   <!-- data -->
   <td><%= user.firstname%></td>
   <td><%= user.lastname%></td>
@@ -9,9 +9,8 @@
   <% end %>
   <td><%= user.passport_no%></td>
   <% if !user.address.nil? %>
-    <td><%=user.address%></td>
+    <td><%=user.address%>
+      <%= user.postcode unless user.postcode.nil? %></td>
   <% end %>
-  <td><%= user.postcode unless user.postcode.nil? %></td>
   <td><%= link_to "Edit", edit_user_path(user.id), :class=>"btn btn-primary" %></td>
-
-</table>
+</tr>

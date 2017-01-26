@@ -1,20 +1,36 @@
-  <%# @properties.each do |prop| %>
-    <!-- <div id="propid-<%# prop.id %>"> -->
-      <!-- test -->
-    <!-- </div> -->
-  <%# end %>
 
-<div id="map"></div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div id="map"></div>
+  </div>
+  <!-- <div class="col-md-1"></div> -->
+  <div class="col-md-6">
+    <h2 class="black-text">Click on the markers to get the details of the property.</h2>
+    <% @properties.each do |prop| %>
+      <div id="propid-<%= prop.id %>">
+        <%= render :partial=>"show_property", locals: {property: prop} %>
+      </div>
+    <% end %>
+  </div>
+</div>
 <script type="text/javascript">
 console.log('hi');
+//Hiding all the property info
+function hideAllProperties(){
+  <% @properties.each do |prop| %>
+    $('#propid-' + <%= prop.id %>).hide();
+  <% end %>
+}
 var map;
-  function initMap() {
-    // var myLatLng = {lat: -25.363, lng: 131.044};
-
+function initMap() {
+  // var myLatLng = {lat: -25.363, lng: 131.044};
+  hideAllProperties();
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
+    zoom: 5,
     center: {lat: -25.363, lng: 131.044}
   });
+  // map.setZoomRange(2, 15);
 
   var markers = [];
   var m;
@@ -32,9 +48,11 @@ var map;
 
   m.addListener('click', function(){
     // console.log('clicked', this, this.infoWin);
-    this.infoWin.open(map, this);
+    // this.infoWin.open(map, this);
     console.log(this.propertyID);
-    $('#propid-' + this.propertyID).css('color', 'green');
+    hideAllProperties();
+    $(".black-text").hide();
+    $('#propid-' + this.propertyID).show();
   });
 
   markers.push(m);
@@ -49,6 +67,7 @@ var map;
 
   }
 </script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBP5XT6bj91OJrEiEtpTT-VUv2GZ6ugyp8&callback=initMap" async defer>
 
 </script>

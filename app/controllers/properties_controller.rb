@@ -8,6 +8,10 @@ class PropertiesController < ApplicationController
   def search
     location = params[:search] + ", Australia"
     @properties = Property.near(location, 5, :units => :km)
+    if @properties.length == 0
+      location = "2000" + ", Australia"
+      @properties = Property.near(location, 5, :units => :km)
+    end
   end
 
   def show
@@ -19,13 +23,16 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    property = Property.new property_params
+    @property = Property.new property_params
     if params[:file].present?
       req = Cloudinary::Uploader.upload(params[:file])
-      property.image = req["public_id"]
+      @property.image = req["public_id"]
     end
-    property.save
-    redirect_to property
+    if @property.save
+      redirect_to properties_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -53,6 +60,6 @@ class PropertiesController < ApplicationController
   def property_params
     params.require(:property).permit(:name, :image, :address, :postcode, :location,
       :rent, :no_of_bedrooms, :no_of_bathrooms, :capacity, :room_type, :female_male,
-      :smoking, :pets, :available_positions)
+      :smoking, :pets)
   end
 end

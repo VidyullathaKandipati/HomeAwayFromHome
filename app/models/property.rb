@@ -23,6 +23,12 @@
 
 class Property < ActiveRecord::Base
   has_many :reservations
+  validates_numericality_of :postcode, :greater_than=>0, :message=>"Please provide valid postcode."
+  validates_numericality_of :rent, :greater_than=>0, :message=>"Please provide valid rent."
+  validates_numericality_of :no_of_bedrooms, :greater_than=>0, :message=>"Please provide valid number of bedrooms."
+  validates_numericality_of :no_of_bathrooms, :greater_than=>0, :message=>"Please provide valid number of bathrooms."
+  validates_numericality_of :capacity, :greater_than=>0, :message=>"Please provide valid capacity."
+
   geocoded_by :full_address   # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates
 

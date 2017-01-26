@@ -4,7 +4,7 @@
 
 <div class="col-md-6">
 <div class="form-group">
-  <%= f.label :user_email, "Email id" %>
+  *<%= f.label :user_email, "Email id" %>
   <%= f.email_field :user_email, :value=>@current_user.email, :autofocus=> true,
       :required=>true %>
 </div>
@@ -14,7 +14,7 @@
 
 
 <div class="form-group">
-  <%= f.label :appointment_time, "Time you need the service" %>
+  *<%= f.label :appointment_time, "Time you need the service" %>
   <%= f.text_field :appointment_time, :required=>true, :id => 'apt-date' %>
 </div>
 

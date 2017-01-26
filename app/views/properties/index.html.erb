@@ -2,8 +2,7 @@
 <!-- <ul> -->
 
 <!-- </ul> -->
-
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<div id="carousel-example-generic" class="carousel slide  custom-width-carousel" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -20,7 +19,7 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox" width="80%">
     <div class="item active">
-      <div class="test"><img src="http://res.cloudinary.com/dzhoxlq6z/image/upload/v1485242668/Carousel_pics/h1.jpg" alt="h1.jpg"></div>
+      <div class="test"><img src="http://res.cloudinary.com/dzhoxlq6z/image/upload/v1485396806/New_carousel/hpm1.jpg" alt="h1.jpg"></div>
       <div class="carousel-caption">
         <h3>Amazing home stay in a peaceful location.</h3>
       </div>
@@ -93,8 +92,9 @@
     <% if p.image.present? %>
       <%= link_to cl_image_tag(p.image,:class=>"img-responsive img-thumbnail img-index-show"), p %>
     <% end %>
-    <li><%= link_to p.name, p %></li>
+    <div class="wrap-text"><%= link_to p.name, p %><br>
     <%= p.location %>
+    </div>
   </div>
 <% end %>
 

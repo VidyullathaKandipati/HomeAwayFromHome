@@ -18,6 +18,7 @@ class Reservation < ActiveRecord::Base
   belongs_to :user
   belongs_to :property
   validates_presence_of :start_date, :end_date
+  validates_numericality_of :no_of_people, :greater_than=>0, :message=>"Please provide valid number of people."
   validate :end_date_is_after_start_date
   # validates_associated :property, :message => "has no availability" #, :on=>[:new, :create, :edit, :update]
   validate :check_for_accomodation_availability, :on=>[:new, :create]
@@ -47,7 +48,7 @@ class Reservation < ActiveRecord::Base
         property.save
       else
         errors.add(:no_of_people, " : Cannot accomodate people for the given date,
-                      try another date and for lesser people.")
+                      try, for another later date.")
       end
     end
   end

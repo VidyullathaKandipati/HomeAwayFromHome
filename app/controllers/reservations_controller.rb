@@ -46,7 +46,6 @@ class ReservationsController < ApplicationController
 
   def destroy
     reservation = Reservation.find params[:id]
-    free_available_positions
     reservation.destroy
     redirect_to property_reservations_path(params[:property_id])
   end
@@ -55,15 +54,6 @@ class ReservationsController < ApplicationController
   def reservation_params
     params.require(:reservation).permit(:user_email, :property_id, :start_date, :end_date,
                                          :no_of_people)
-  end
-
-  def free_available_positions
-    property = Property.find params[:property_id]
-    reservation = Reservation.find params[:id]
-    puts "Adding: #{reservation.no_of_people} people"
-    puts "Now current positions: #{property.available_positions}"
-    property.available_positions += reservation.no_of_people
-    property.save
   end
 
 end

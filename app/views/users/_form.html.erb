@@ -16,7 +16,7 @@
   *<%= f.label :email %>
   <%= f.email_field :email, :required => true, :class=>"form-control textfield-border" %>
 </div>
-  <% if @user.id.nil? %>
+  <%# if @user.id.nil? %>
   <div class="form-group">
     *<%= f.label :password %>
     <%= f.password_field :password, :required => true, :class=>"form-control textfield-border" %>
@@ -25,7 +25,7 @@
     *<%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, :required=>true, :class=>"form-control textfield-border" %>
   </div>
-  <% end %>
+  <%# end %>
 <div class="form-group">
   <%= f.label :contact %>
   <%= f.text_field :contact, :class=>"form-control textfield-border"%>
