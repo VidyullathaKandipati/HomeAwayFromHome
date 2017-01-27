@@ -1,0 +1,23 @@
+Fri, 27 Jan 2017 10:51:57 +1100
+README.rdoc	Thu, 26 Jan 2017 22:33:44 +1100
+app/controllers/application_controller.rb	Sun, 22 Jan 2017 11:22:26 +1100
+app/controllers/bookings_controller.rb	Wed, 25 Jan 2017 15:00:19 +1100
+app/controllers/pages_controller.rb	Fri, 20 Jan 2017 16:43:00 +1100
+app/controllers/properties_controller.rb	Fri, 27 Jan 2017 09:49:41 +1100
+app/controllers/reservations_controller.rb	Thu, 26 Jan 2017 14:23:14 +1100
+app/controllers/services_controller.rb	Wed, 25 Jan 2017 11:11:21 +1100
+app/controllers/session_controller.rb	Sun, 22 Jan 2017 11:23:47 +1100
+app/controllers/users_controller.rb	Thu, 26 Jan 2017 16:26:17 +1100
+app/helpers/application_helper.rb	Fri, 20 Jan 2017 12:49:11 +1100
+app/helpers/bookings_helper.rb	Sun, 22 Jan 2017 19:10:57 +1100
+app/helpers/pages_helper.rb	Fri, 20 Jan 2017 16:41:32 +1100
+app/helpers/properties_helper.rb	Fri, 20 Jan 2017 18:34:11 +1100
+app/helpers/reservations_helper.rb	Sun, 22 Jan 2017 11:14:06 +1100
+app/helpers/services_helper.rb	Sat, 21 Jan 2017 12:52:41 +1100
+app/helpers/session_helper.rb	Sat, 21 Jan 2017 21:23:04 +1100
+app/helpers/users_helper.rb	Sat, 21 Jan 2017 14:09:21 +1100
+app/models/booking.rb	Wed, 25 Jan 2017 15:02:27 +1100
+app/models/property.rb	Thu, 26 Jan 2017 16:14:42 +1100
+app/models/reservation.rb	Thu, 26 Jan 2017 16:15:00 +1100
+app/models/service.rb	Sun, 22 Jan 2017 11:09:40 +1100
+app/models/user.rb	Thu, 26 Jan 2017 16:23:11 +1100

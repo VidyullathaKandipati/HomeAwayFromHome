@@ -15,7 +15,7 @@
   </div>
 </div>
 <script type="text/javascript">
-console.log('hi');
+// console.log('hi');
 //Hiding all the property info
 function hideAllProperties(){
   <% @properties.each do |prop| %>
@@ -27,8 +27,9 @@ function initMap() {
   // var myLatLng = {lat: -25.363, lng: 131.044};
   hideAllProperties();
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 5,
-    center: {lat: -25.363, lng: 131.044}
+    zoom: 13,
+    center:   {lat: <%= @properties.first.latitude %>, lng: <%= @properties.first.longitude %>}
+    //{lat: -25.363, lng: 131.044}
   });
   // map.setZoomRange(2, 15);
 
@@ -42,14 +43,15 @@ function initMap() {
   });
 
   m.propertyID = '<%= prop.id %>';
+  m.propertyName = '<%= prop.name %>';
   m.infoWin = new google.maps.InfoWindow({
-    content: '<%= prop.name %><br><%= cl_image_tag prop.image, :style => 'width: 100px; height: 100px;'  %>'
+    content: '<%= prop.name %>'
   });
 
   m.addListener('click', function(){
     // console.log('clicked', this, this.infoWin);
-    // this.infoWin.open(map, this);
-    console.log(this.propertyID);
+    this.infoWin.open(map, this);
+    // console.log(this.propertyID);
     hideAllProperties();
     $(".black-text").hide();
     $('#propid-' + this.propertyID).show();
@@ -59,11 +61,13 @@ function initMap() {
 
   <% end %>
 
-  var bounds = new google.maps.LatLngBounds();
-  for (var i = 0; i < markers.length; i++) {
-   bounds.extend(markers[i].getPosition());
+  if(markers.length > 1) {
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < markers.length; i++) {
+     bounds.extend(markers[i].getPosition());
+    }
+    map.fitBounds(bounds);
   }
-  map.fitBounds(bounds);
 
   }
 </script>
