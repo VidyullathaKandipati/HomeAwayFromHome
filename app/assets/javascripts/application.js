@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require processing.min
 //= require bootstrap-sprockets
 //= require_tree .
 
